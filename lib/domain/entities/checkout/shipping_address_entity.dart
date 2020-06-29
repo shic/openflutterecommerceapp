@@ -9,13 +9,14 @@ class ShippingAddressEngity extends Entity<int> {
   final String country;
 
   ShippingAddressEngity(
-    {int id, 
-    this.fullName, 
-    this.address, 
-    this.city,
-    this.state,
-    this.postal,
-    this.country}) : super(id);
+      {int id,
+      this.fullName,
+      this.address,
+      this.city,
+      this.state,
+      this.postal,
+      this.country})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {
@@ -31,13 +32,6 @@ class ShippingAddressEngity extends Entity<int> {
   }
 
   @override
-  List<Object> get props => [
-    id, 
-    fullName, 
-    address, 
-    city,
-    state,
-    postal,
-    country
-  ];
+  List<Object> get props =>
+      [id, fullName, address, city, state, postal, country];
 }

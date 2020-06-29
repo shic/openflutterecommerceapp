@@ -18,12 +18,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   final RemoveProductFromCartUseCase removeProductFromCartUseCase;
   final AddToFavoritesUseCase addToFavoritesUseCase;
   final GetPromosUseCase getPromosUseCase;
-  
-  CartBloc() 
-  : getCartProductsUseCase = sl(),
-    removeProductFromCartUseCase = sl(),
-    addToFavoritesUseCase = sl(),
-    getPromosUseCase = sl();
+
+  CartBloc()
+      : getCartProductsUseCase = sl(),
+        removeProductFromCartUseCase = sl(),
+        addToFavoritesUseCase = sl(),
+        getPromosUseCase = sl();
 
   @override
   CartState get initialState => CartInitialState();
@@ -32,10 +32,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   Stream<CartState> mapEventToState(CartEvent event) async* {
     if (event is CartLoadedEvent) {
       if (state is CartInitialState) {
-        final cartResults = await getCartProductsUseCase.execute(GetCartProductParams());
+        final cartResults =
+            await getCartProductsUseCase.execute(GetCartProductParams());
         var promos = await getPromosUseCase.execute(GetPromosParams());
         yield CartLoadedState(
-            showPromoPopup: false, promos: promos.promos, cartProducts: cartResults.cartItems);
+            showPromoPopup: false,
+            promos: promos.promos,
+            cartProducts: cartResults.cartItems);
       } else if (state is CartLoadedState) {
         yield state;
       }
@@ -44,37 +47,30 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       yield CartLoadingState();
       ChangeCartItemQuantityUseCase changeCartItemQuantityUseCase = sl();
       await changeCartItemQuantityUseCase.execute(ChangeCartItemQuantityParams(
-        item: event.item,
-        quantity: event.newQuantity
-      ));
-      final cartResults = await getCartProductsUseCase.execute(GetCartProductParams());
+          item: event.item, quantity: event.newQuantity));
+      final cartResults =
+          await getCartProductsUseCase.execute(GetCartProductParams());
       yield CartLoadedState(
-        cartProducts: cartResults.cartItems, 
-        promos: state.promos, 
-        showPromoPopup: state.showPromoPopup
-      );
+          cartProducts: cartResults.cartItems,
+          promos: state.promos,
+          showPromoPopup: state.showPromoPopup);
     } else if (event is CartRemoveFromCartEvent) {
       var state = this.state as CartLoadedState;
       yield CartLoadingState();
       await removeProductFromCartUseCase.execute(event.item);
-      final cartResults = await getCartProductsUseCase.execute(GetCartProductParams());
+      final cartResults =
+          await getCartProductsUseCase.execute(GetCartProductParams());
       yield CartLoadedState(
-        cartProducts: cartResults.cartItems, 
-        promos: state.promos, 
-        showPromoPopup: state.showPromoPopup
-      );
+          cartProducts: cartResults.cartItems,
+          promos: state.promos,
+          showPromoPopup: state.showPromoPopup);
     } else if (event is CartAddToFavsEvent) {
       await addToFavoritesUseCase.execute(
-        FavoriteProduct(
-          event.item.product,
-          event.item.selectedAttributes
-        )
-      );
+          FavoriteProduct(event.item.product, event.item.selectedAttributes));
     } else if (event is CartPromoAppliedEvent) {
       //TODO: apply promo code
       var state = this.state as CartLoadedState;
-      yield state.copyWith(showPromoPopup: false,
-        appliedPromo: event.promo);
+      yield state.copyWith(showPromoPopup: false, appliedPromo: event.promo);
     } else if (event is CartPromoCodeAppliedEvent) {
       //TODO: apply promo code
       var state = this.state as CartLoadedState;

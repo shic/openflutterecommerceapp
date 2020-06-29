@@ -65,9 +65,8 @@ class _CartViewState extends State<CartView> {
         for (var i = 0; i < state.cartProducts.length; i++) {
           totalPrice += state.cartProducts[i].price;
         }
-        final calculatedTotalPrice = 
-          state.appliedPromo != null ?
-            totalPrice * (1 - state.appliedPromo.discount/100)
+        final calculatedTotalPrice = state.appliedPromo != null
+            ? totalPrice * (1 - state.appliedPromo.discount / 100)
             : totalPrice;
         return Stack(children: <Widget>[
           SingleChildScrollView(
@@ -81,9 +80,8 @@ class _CartViewState extends State<CartView> {
               padding: EdgeInsets.only(bottom: AppSizes.sidePadding * 3),
             ),
             OpenFlutterInputButton(
-              placeHolder:
-                state.appliedPromo != null ?
-                  state.appliedPromo.promoCode 
+              placeHolder: state.appliedPromo != null
+                  ? state.appliedPromo.promoCode
                   : 'Enter your promo code',
               controller: _promoController,
               width: width,
@@ -92,18 +90,18 @@ class _CartViewState extends State<CartView> {
             Padding(
               padding: EdgeInsets.only(bottom: AppSizes.sidePadding * 3),
             ),
-            state.appliedPromo != null ?
-              Column(
-                children: <Widget> [
-                  OpenFlutterSummaryLine(
-                    title: 'Subtotal:',
-                    summary: '\$' + totalPrice.toStringAsFixed(2)),
-                  
-                  OpenFlutterSummaryLine(
-                    title: 'Discount percent:',
-                    summary: state.appliedPromo.discount.toStringAsFixed(0) + '%') 
-                  ]
-                )  : Container(),
+            state.appliedPromo != null
+                ? Column(children: <Widget>[
+                    OpenFlutterSummaryLine(
+                        title: 'Subtotal:',
+                        summary: '\$' + totalPrice.toStringAsFixed(2)),
+                    OpenFlutterSummaryLine(
+                        title: 'Discount percent:',
+                        summary:
+                            state.appliedPromo.discount.toStringAsFixed(0) +
+                                '%')
+                  ])
+                : Container(),
             OpenFlutterSummaryLine(
                 title: 'Total amount:',
                 summary: '\$' + calculatedTotalPrice.toStringAsFixed(2)),
@@ -178,17 +176,15 @@ class _CartViewState extends State<CartView> {
           child: OpenFlutterCartTile(
             item: items[i],
             onChangeQuantity: ((int quantity) => {
-              bloc
-                ..add(CartQuantityChangedEvent(
-                  item: items[i], newQuantity: quantity))
-            }),
+                  bloc
+                    ..add(CartQuantityChangedEvent(
+                        item: items[i], newQuantity: quantity))
+                }),
             onAddToFav: () {
-              bloc
-                ..add(CartAddToFavsEvent(item: items[i]));
+              bloc..add(CartAddToFavsEvent(item: items[i]));
             },
             onRemoveFromCart: () {
-              bloc
-                ..add(CartRemoveFromCartEvent(item: items[i]));
+              bloc..add(CartRemoveFromCartEvent(item: items[i]));
             },
           )));
     }

@@ -15,7 +15,8 @@ class OrderProductEntity extends Entity<int> {
       this.totalPrice,
       this.title,
       this.discountPercent,
-      this.thumb}) : super(id);
+      this.thumb})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {

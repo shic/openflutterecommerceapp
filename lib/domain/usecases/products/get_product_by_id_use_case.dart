@@ -6,35 +6,31 @@ import 'package:openflutterecommerce/locator.dart';
 abstract class GetProductByIdUseCase
     implements BaseUseCase<ProductDetailsResults, ProductDetailsParams> {}
 
-    
 class GetProductByIdUseCaseImpl implements GetProductByIdUseCase {
-
   @override
   Future<ProductDetailsResults> execute(ProductDetailsParams params) async {
     //TODO: replace fetch from API
     //TEMP solution
     ProductRepository productRepository = sl();
-    //TODO: 
+    //TODO:
     List<Product> products =
         await productRepository.getProducts(categoryId: params.categoryId);
     Product product;
-    products.forEach((Product f) => {
-        if ( f.id == params.productId) product = f
-      }
-    );
+    products
+        .forEach((Product f) => {if (f.id == params.productId) product = f});
     return ProductDetailsResults(
-      productDetails: product,
-      similarProducts: products);
+        productDetails: product, similarProducts: products);
   }
 }
 
-class ProductDetailsResults{
+class ProductDetailsResults {
   final Product productDetails;
   final List<Product> similarProducts;
 
   ProductDetailsResults({this.productDetails, this.similarProducts});
 }
-class ProductDetailsParams{
+
+class ProductDetailsParams {
   final int productId;
   final int categoryId;
 

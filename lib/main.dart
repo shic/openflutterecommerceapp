@@ -143,7 +143,7 @@ class OpenFlutterEcommerceApp extends StatelessWidget {
             } else {
               return SplashScreen();
             }*/
-            return ProfileScreen(); 
+            return ProfileScreen();
           }),
     };
   }

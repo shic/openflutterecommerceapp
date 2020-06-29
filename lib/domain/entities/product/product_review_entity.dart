@@ -10,14 +10,15 @@ class ProductReviewEntity extends Entity<int> {
   final String thumb;
 
   ProductReviewEntity(
-    {int id,
-    this.description,
-    this.productId,
-    this.rating,
-    this.hasPhoto,
-    this.date,
-    this.author,
-    this.thumb}) : super(id);
+      {int id,
+      this.description,
+      this.productId,
+      this.rating,
+      this.hasPhoto,
+      this.date,
+      this.author,
+      this.thumb})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {
@@ -35,13 +36,5 @@ class ProductReviewEntity extends Entity<int> {
 
   @override
   List<Object> get props =>
-    [id, 
-    description, 
-    productId, 
-    rating, 
-    hasPhoto, 
-    date, 
-    author, 
-    thumb
-  ];
+      [id, description, productId, rating, hasPhoto, date, author, thumb];
 }

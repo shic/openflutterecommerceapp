@@ -35,7 +35,8 @@ abstract class CategoryViewState extends CategoryState {
 
 @immutable
 class CategoryListViewState extends CategoryViewState {
-  CategoryListViewState({int parentCategoryId, List<ProductCategory> categories})
+  CategoryListViewState(
+      {int parentCategoryId, List<ProductCategory> categories})
       : super(parentCategoryId: parentCategoryId, categories: categories);
 
   @override

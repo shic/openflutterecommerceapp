@@ -25,12 +25,14 @@ class UserOrder extends Equatable {
   double get totalPrice =>
       products.fold(
           0,
-          (previousValue, element) =>
-              previousValue += element.productQuantity.quantity * element.price) -
+          (previousValue, element) => previousValue +=
+              element.productQuantity.quantity * element.price) -
       promo.discount;
 
   int get totalQuantity => products.fold(
-      0, (previousValue, element) => previousValue += element.productQuantity.quantity);
+      0,
+      (previousValue, element) =>
+          previousValue += element.productQuantity.quantity);
 
   UserOrder({
     this.id,

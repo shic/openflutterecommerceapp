@@ -80,47 +80,52 @@ class Product extends Equatable {
         categories: categories,
         hashTags: hashTags,
         selectableAttributes: selectableAttributes,
-        isFavorite: isFavorite??false);
+        isFavorite: isFavorite ?? false);
   }
 
   //Method mapping domain entity with presentation level model
   @override
   factory Product.fromEntity(Entity entity) {
-    if ( entity is ProductEntity ) {
+    if (entity is ProductEntity) {
       List<CommerceImage> images = [];
-      if ( entity.images.isNotEmpty ) {
+      if (entity.images.isNotEmpty) {
         entity.images.forEach((f) => images.add(CommerceImage(0, f, '')));
       }
       List<ProductCategory> categories = [];
-      if ( entity.categories.isNotEmpty ){
-        entity.categories.forEach((category) => categories.add(ProductCategory(category.id, name: category.title)));
+      if (entity.categories.isNotEmpty) {
+        entity.categories.forEach((category) =>
+            categories.add(ProductCategory(category.id, name: category.title)));
       }
       List<HashTag> hashTags = [];
-      if ( entity.hashTags.isNotEmpty ){
-        entity.hashTags.forEach((hashTag) => hashTags.add(HashTag(id: hashTag.id, title: hashTag.title)));
+      if (entity.hashTags.isNotEmpty) {
+        entity.hashTags.forEach((hashTag) =>
+            hashTags.add(HashTag(id: hashTag.id, title: hashTag.title)));
       }
-      return Product(
-        entity.id, 
-        title: entity.title,
-        subTitle: entity.subTitle,
-        shortDescription: entity.description,
-        description: entity.description,
-        price: entity.price ?? 0,
-        discountPercent: entity.discountPercent,
-        amountAvailable: entity.amount,
-        //TODO: created - do we need this attribute in the model?
-        averageRating: entity.rating,
-        categories: categories,
-        hashTags:  hashTags,
-        ratingCount: entity.rating1Count + entity.rating2Count + entity.rating3Count + entity.rating4Count + entity.rating5Count,
-        //TODO: add images images: [],
-        images: images,
-        //TODO: add selectable attributes selectableAttributes: [],
-        isFavorite: entity.isFavourite,
-        selectableAttributes: entity.selectableAttributes
-      );
+      return Product(entity.id,
+          title: entity.title,
+          subTitle: entity.subTitle,
+          shortDescription: entity.description,
+          description: entity.description,
+          price: entity.price ?? 0,
+          discountPercent: entity.discountPercent,
+          amountAvailable: entity.amount,
+          //TODO: created - do we need this attribute in the model?
+          averageRating: entity.rating,
+          categories: categories,
+          hashTags: hashTags,
+          ratingCount: entity.rating1Count +
+              entity.rating2Count +
+              entity.rating3Count +
+              entity.rating4Count +
+              entity.rating5Count,
+          //TODO: add images images: [],
+          images: images,
+          //TODO: add selectable attributes selectableAttributes: [],
+          isFavorite: entity.isFavourite,
+          selectableAttributes: entity.selectableAttributes);
     } else {
-      throw EntityModelMapperException(message: 'Entity should be of type ProductEntity');
+      throw EntityModelMapperException(
+          message: 'Entity should be of type ProductEntity');
     }
   }
 

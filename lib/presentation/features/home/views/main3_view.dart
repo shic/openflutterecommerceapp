@@ -70,8 +70,7 @@ class _Main3ViewState extends State<Main3View> {
                     ),
                   ),
                   child: Text('Black',
-                      style:
-                          _theme.textTheme.headline.copyWith(fontSize: 34))),
+                      style: _theme.textTheme.headline.copyWith(fontSize: 34))),
             ],
           ),
           Container(

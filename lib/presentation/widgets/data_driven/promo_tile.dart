@@ -35,37 +35,34 @@ class OpenFlutterPromoTile extends StatelessWidget {
         children: <Widget>[
           Container(
               width: 85,
-              decoration: item.image != null ?
-                BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage(item.image)
-                  )
-                )
-                : 
-                BoxDecoration(
-                  color: AppColors.red,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppSizes.textFieldRadius),
-                    bottomLeft: Radius.circular(AppSizes.textFieldRadius)),
-                ),
+              decoration: item.image != null
+                  ? BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fill, image: AssetImage(item.image)))
+                  : BoxDecoration(
+                      color: AppColors.red,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(AppSizes.textFieldRadius),
+                          bottomLeft:
+                              Radius.circular(AppSizes.textFieldRadius)),
+                    ),
               padding: EdgeInsets.all(AppSizes.linePadding * 2),
               child: Row(children: <Widget>[
                 Text(item.discount.toStringAsFixed(0),
-                  style: _theme.textTheme.caption.copyWith(
-                    color: textColor,
-                    fontSize: 32)),
+                    style: _theme.textTheme.caption
+                        .copyWith(color: textColor, fontSize: 32)),
                 Padding(
-                  padding: EdgeInsets.only(top: 16, left: 5),
-                  child: Column(
-                    children: <Widget>[
-                      Text('%',
-                        style: _theme.textTheme.display3
-                          .copyWith(color: textColor)),
-                      Text('off',
-                        style: _theme.textTheme.display3
-                          .copyWith(color: textColor))
-                    ],
-                  ))
+                    padding: EdgeInsets.only(top: 16, left: 5),
+                    child: Column(
+                      children: <Widget>[
+                        Text('%',
+                            style: _theme.textTheme.display3
+                                .copyWith(color: textColor)),
+                        Text('off',
+                            style: _theme.textTheme.display3
+                                .copyWith(color: textColor))
+                      ],
+                    ))
               ])),
           Container(
               padding: EdgeInsets.only(left: AppSizes.sidePadding),

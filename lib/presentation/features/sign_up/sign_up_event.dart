@@ -19,4 +19,3 @@ class SignUpPressed extends SignUpEvent {
 class SignUpPressedFacebook extends SignUpEvent {}
 
 class SignUpPressedGoogle extends SignUpEvent {}
-

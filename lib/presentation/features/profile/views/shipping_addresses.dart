@@ -7,17 +7,17 @@ class MyShippingAddressesView extends StatefulWidget {
   const MyShippingAddressesView({Key key, this.changeView}) : super(key: key);
 
   @override
-  _MyShippingAddressesViewState createState() => _MyShippingAddressesViewState();
+  _MyShippingAddressesViewState createState() =>
+      _MyShippingAddressesViewState();
 }
 
 class _MyShippingAddressesViewState extends State<MyShippingAddressesView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: OpenFlutterBlockHeader(
-        title: 'Shipping Addresses', 
-        width: MediaQuery.of(context).size.width,
-      )
-    );
+        child: OpenFlutterBlockHeader(
+      title: 'Shipping Addresses',
+      width: MediaQuery.of(context).size.width,
+    ));
   }
 }

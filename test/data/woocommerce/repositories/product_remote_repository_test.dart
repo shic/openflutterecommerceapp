@@ -9,7 +9,8 @@ import 'package:openflutterecommerce/data/woocommerce/repositories/woocommerce_w
 
 import '../../../fixtures/fixture_reader.dart';
 
-class MockWoocommerceWrapper extends Mock implements WoocommercWrapperAbstract { }
+class MockWoocommerceWrapper extends Mock implements WoocommercWrapperAbstract {
+}
 
 class MockNetworkStatus extends Mock implements NetworkStatus {}
 
@@ -40,9 +41,8 @@ void main() {
         'should return list of products when getProducts is successful',
         () async {
           // arrange
-          when(woocommerce.getProductList(any))
-            .thenAnswer((_) async => json.decode(fixture('woocommerce/products.json'))
-          );
+          when(woocommerce.getProductList(any)).thenAnswer(
+              (_) async => json.decode(fixture('woocommerce/products.json')));
           // act
           final products = await remoteProductRepository.getProducts();
           // assert
@@ -58,11 +58,10 @@ void main() {
               .thenThrow(HttpRequestException());
           // act
           // assert
-          expect(() => remoteProductRepository.getProducts(), throwsA(isInstanceOf<RemoteServerException>()));
+          expect(() => remoteProductRepository.getProducts(),
+              throwsA(isInstanceOf<RemoteServerException>()));
         },
       );
     });
   });
-  
 }
-    

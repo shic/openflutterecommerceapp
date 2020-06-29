@@ -7,7 +7,6 @@ import 'package:openflutterecommerce/domain/entities/validator.dart';
 import 'package:openflutterecommerce/presentation/features/sign_up/sign_up.dart';
 import 'package:openflutterecommerce/presentation/widgets/widgets.dart';
 
-
 class SignUpScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

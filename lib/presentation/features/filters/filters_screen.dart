@@ -64,8 +64,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                 option,
                                 FilterSelectableItem(
                                   text: option,
-                                  isSelected: rules.selectedAttributes[attribute] != null
-                                    ? rules.selectedAttributes[attribute].contains(option) : false,
+                                  isSelected:
+                                      rules.selectedAttributes[attribute] !=
+                                              null
+                                          ? rules.selectedAttributes[attribute]
+                                              .contains(option)
+                                          : false,
                                 )))),
                       )))
                   .values
@@ -100,7 +104,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
   }
 
   void _onAttributeSelected(ProductAttribute attribute, String value) {
-    if ( rules.selectedAttributes[attribute] == null ) {
+    if (rules.selectedAttributes[attribute] == null) {
       rules.selectedAttributes[attribute] = [];
     }
     if (rules.selectedAttributes[attribute].contains(value)) {

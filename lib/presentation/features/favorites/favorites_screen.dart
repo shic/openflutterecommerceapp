@@ -25,8 +25,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
         title: null,
         body: BlocProvider<FavouriteBloc>(
           create: (context) {
-            return FavouriteBloc()
-              ..add(ScreenLoadedEvent());
+            return FavouriteBloc()..add(ScreenLoadedEvent());
           },
           child: _buildScreen(context),
         ),

@@ -25,7 +25,8 @@ class UserOrderEntity extends Entity<int> {
       this.orderStatus,
       this.totalAmount,
       this.deliveryMethodId,
-      this.deliveryPrice}) : super(id);
+      this.deliveryPrice})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {

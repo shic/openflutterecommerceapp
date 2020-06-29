@@ -51,5 +51,6 @@ class FavouriteState extends Equatable {
   }
 
   @override
-  List<Object> get props => [data, hashtags, sortBy, filterRules, error, isProductsLoading];
+  List<Object> get props =>
+      [data, hashtags, sortBy, filterRules, error, isProductsLoading];
 }

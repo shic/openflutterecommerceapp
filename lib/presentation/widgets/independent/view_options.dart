@@ -84,29 +84,27 @@ class OpenFlutterViewOptions extends StatelessWidget {
         context: context,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(34.0),
-            topRight: Radius.circular(34.0)
-          ),
+              topLeft: Radius.circular(34.0), topRight: Radius.circular(34.0)),
         ),
         backgroundColor: Colors.white,
         builder: (context) {
-          return Column(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(AppSizes.sidePadding),
-                child: Container(
-                  width: 60,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppColors.darkGray,
-                    borderRadius: BorderRadius.circular(AppSizes.imageRadius),
-                  ),
+          return Column(children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(AppSizes.sidePadding),
+              child: Container(
+                width: 60,
+                height: 6,
+                decoration: BoxDecoration(
+                  color: AppColors.darkGray,
+                  borderRadius: BorderRadius.circular(AppSizes.imageRadius),
                 ),
               ),
-              Text('Sort by',
-                style: Theme.of(context).textTheme.display1),
-              Padding(padding: EdgeInsets.only(top: AppSizes.sidePadding),),
-              ...sortRules.sortTextVariants
+            ),
+            Text('Sort by', style: Theme.of(context).textTheme.display1),
+            Padding(
+              padding: EdgeInsets.only(top: AppSizes.sidePadding),
+            ),
+            ...sortRules.sortTextVariants
                 .map((key, value) => MapEntry(
                       key,
                       Container(
@@ -122,36 +120,37 @@ class OpenFlutterViewOptions extends StatelessWidget {
                             Expanded(
                               child: InkWell(
                                 child: Text(value,
-                                  style: Theme.of(context).textTheme.display1.copyWith(        
-                                      fontWeight: FontWeight.normal,
-                                      color: sortRules.sortType == key
-                                        ? AppColors.white
-                                        : AppColors.black)),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .display1
+                                        .copyWith(
+                                            fontWeight: FontWeight.normal,
+                                            color: sortRules.sortType == key
+                                                ? AppColors.white
+                                                : AppColors.black)),
                                 onTap: () {
                                   onSortChanged(SortRules(
-                                      sortOrder:
-                                        sortRules.sortType == key ?
-                                        (
-                                          sortRules.sortOrder == SortOrder.FromLowestToHighest ?
-                                          SortOrder.FromHighestToLowest : SortOrder.FromLowestToHighest
-                                        ) :
-                                        sortRules.sortOrder,
+                                      sortOrder: sortRules.sortType == key
+                                          ? (sortRules.sortOrder ==
+                                                  SortOrder.FromLowestToHighest
+                                              ? SortOrder.FromHighestToLowest
+                                              : SortOrder.FromLowestToHighest)
+                                          : sortRules.sortOrder,
                                       sortType: key));
                                   Navigator.pop(context);
                                 },
                               ),
                             ),
                             IconButton(
-                              icon: Icon(
-                                sortRules.sortOrder == SortOrder.FromHighestToLowest ?
-                                FontAwesomeIcons.sortAlphaUp :
-                                FontAwesomeIcons.sortAlphaDown),
-                              color: sortRules.sortType == key ?
-                                Theme.of(context).primaryColor 
-                                : Theme.of(context).backgroundColor,
+                              icon: Icon(sortRules.sortOrder ==
+                                      SortOrder.FromHighestToLowest
+                                  ? FontAwesomeIcons.sortAlphaUp
+                                  : FontAwesomeIcons.sortAlphaDown),
+                              color: sortRules.sortType == key
+                                  ? Theme.of(context).primaryColor
+                                  : Theme.of(context).backgroundColor,
                               onPressed: () {
-                                onSortChanged(
-                                    sortRules.copyWithChangedOrder());
+                                onSortChanged(sortRules.copyWithChangedOrder());
                                 Navigator.pop(context);
                               },
                             )
@@ -161,7 +160,7 @@ class OpenFlutterViewOptions extends StatelessWidget {
                     ))
                 .values
                 .toList(growable: false),
-            ]);
+          ]);
         });
   }
 }

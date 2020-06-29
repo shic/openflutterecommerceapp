@@ -35,8 +35,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       title: null,
       body: BlocProvider<ProductsBloc>(
           create: (context) {
-            return ProductsBloc(
-                category: widget.parameters.category)
+            return ProductsBloc(category: widget.parameters.category)
               ..add(ScreenLoadedEvent());
           },
           child: BlocConsumer<ProductsBloc, ProductsState>(
@@ -49,7 +48,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
               return CustomScrollView(
                 slivers: <Widget>[
                   SizeChangingAppBar(
-                    title: state.data?.category?.name??'',
+                    title: state.data?.category?.name ?? '',
                     filterRules: state.filterRules,
                     sortRules: state.sortBy,
                     isListView: state is ProductsListViewState,

@@ -14,10 +14,9 @@ class _PaymentMethodsViewState extends State<PaymentMethodsView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: OpenFlutterBlockHeader(
-        title: 'Payment Methods', 
-        width: MediaQuery.of(context).size.width,
-      )
-    );
+        child: OpenFlutterBlockHeader(
+      title: 'Payment Methods',
+      width: MediaQuery.of(context).size.width,
+    ));
   }
 }

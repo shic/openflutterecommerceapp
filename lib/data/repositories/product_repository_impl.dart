@@ -17,9 +17,8 @@ import 'package:openflutterecommerce/locator.dart';
 
 //Uses remote or local data depending on NetworkStatus
 class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
-
   static ProductDataStorage dataStorage = ProductDataStorage();
-  
+
   @override
   Future<Product> getProduct(int id) {
     // TODO: implement getProduct
@@ -54,11 +53,10 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
       SortRules sortRules = const SortRules(),
       FilterRules filterRules}) async {
     // TODO: implement getProducts
-    try
-    {
+    try {
       NetworkStatus networkStatus = sl();
       ProductRepository productRepository;
-      if ( networkStatus.isConnected != null ) {
+      if (networkStatus.isConnected != null) {
         productRepository = RemoteProductRepository(woocommerce: sl());
       } else {
         productRepository = LocalProductRepository();
@@ -68,13 +66,10 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
 
       //check favorites
       dataStorage.products = [];
-      products.forEach( (product) =>{
-        dataStorage.products.add(
-          product.favorite(
-            checkFavorite(product.id)
-          )
-        )
-      }); 
+      products.forEach((product) => {
+            dataStorage.products
+                .add(product.favorite(checkFavorite(product.id)))
+          });
 
       return dataStorage.products;
     } on HttpRequestException {
@@ -83,13 +78,17 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
   }
 
   @override
-  Future addToFavorites(Product product, HashMap<ProductAttribute, String> selectedAttributes) async {
+  Future addToFavorites(Product product,
+      HashMap<ProductAttribute, String> selectedAttributes) async {
     dataStorage.favProducts.add(FavoriteProduct(product, selectedAttributes));
   }
 
   @override
-  Future<List<FavoriteProduct>> getFavoriteProducts({int pageIndex = 0, int pageSize = AppConsts.page_size, 
-      SortRules sortRules = const SortRules(), FilterRules filterRules}) async {
+  Future<List<FavoriteProduct>> getFavoriteProducts(
+      {int pageIndex = 0,
+      int pageSize = AppConsts.page_size,
+      SortRules sortRules = const SortRules(),
+      FilterRules filterRules}) async {
     //TODO: remove when favorite feature will be implemented
     /*_dataStorage.products = await getProducts();
     _dataStorage.products.forEach((product) => 
@@ -104,11 +103,13 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
   }
 
   @override
-  Future<List<FavoriteProduct>> removeFromFavorites(int productId, HashMap<ProductAttribute, String> selectedAttributes) async {
+  Future<List<FavoriteProduct>> removeFromFavorites(int productId,
+      HashMap<ProductAttribute, String> selectedAttributes) async {
     //TODO: remove from database in the future
-    dataStorage.favProducts.removeWhere((product) => product.product.id == productId && 
-      (selectedAttributes == null || product.favoriteForm == selectedAttributes)
-    );
+    dataStorage.favProducts.removeWhere((product) =>
+        product.product.id == productId &&
+        (selectedAttributes == null ||
+            product.favoriteForm == selectedAttributes));
     return dataStorage.favProducts;
   }
 
@@ -116,8 +117,8 @@ class ProductRepositoryImpl extends ProductRepository with FavoritesRepository {
   bool checkFavorite(int productId) {
     // TODO: implement checkFavorite
     bool isFavorite = false;
-    for( int i = 0; i < dataStorage.favProducts.length; i++) {
-      if ( dataStorage.favProducts[i].product.id == productId) {
+    for (int i = 0; i < dataStorage.favProducts.length; i++) {
+      if (dataStorage.favProducts[i].product.id == productId) {
         isFavorite = true;
         break;
       }

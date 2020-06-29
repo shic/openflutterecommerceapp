@@ -12,16 +12,17 @@ class UserEntity extends Entity<int> {
   final bool deliveryStatusChanges;
 
   UserEntity(
-    {int id,
-    this.name,
-    this.avatar,
-    this.email,
-    this.password,
-    this.birthDate,
-    this.token,
-    this.salesNotification,
-    this.newArrivalsNotification,
-    this.deliveryStatusChanges}) : super(id);
+      {int id,
+      this.name,
+      this.avatar,
+      this.email,
+      this.password,
+      this.birthDate,
+      this.token,
+      this.salesNotification,
+      this.newArrivalsNotification,
+      this.deliveryStatusChanges})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {
@@ -41,15 +42,15 @@ class UserEntity extends Entity<int> {
 
   @override
   List<Object> get props => [
-    id,
-    name,
-    avatar,
-    email,
-    password,
-    birthDate,
-    token,
-    salesNotification,
-    newArrivalsNotification,
-    deliveryStatusChanges
-  ];
+        id,
+        name,
+        avatar,
+        email,
+        password,
+        birthDate,
+        token,
+        salesNotification,
+        newArrivalsNotification,
+        deliveryStatusChanges
+      ];
 }

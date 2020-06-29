@@ -40,8 +40,8 @@ class _OpenFlutterColorSelectState extends State<OpenFlutterColorSelect> {
       ),
       Container(
         padding: EdgeInsets.symmetric(
-          vertical: AppSizes.sidePadding, 
-          horizontal: AppSizes.sidePadding * 2),
+            vertical: AppSizes.sidePadding,
+            horizontal: AppSizes.sidePadding * 2),
         width: width,
         color: AppColors.white,
         child: Wrap(

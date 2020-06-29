@@ -62,8 +62,8 @@ class SizeChangingAppBar extends StatelessWidget {
               child: VisualFilter(
                   filterRules?.hashTags, filterRules?.selectedHashTags,
                   (updateValue, isSelected) {
-                BlocProvider.of<ProductsBloc>(context).add(
-                    ProductChangeHashTagEvent(updateValue, isSelected));
+                BlocProvider.of<ProductsBloc>(context)
+                    .add(ProductChangeHashTagEvent(updateValue, isSelected));
               }),
             ),
             OpenFlutterViewOptions(

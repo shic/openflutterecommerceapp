@@ -10,14 +10,15 @@ class ProductCategoryEntity extends Entity<int> {
   final int count;
 
   ProductCategoryEntity(
-    {int id,
-    this.title,
-    this.description,
-    this.image,
-    this.thumb,
-    this.parentId,
-    this.orderNumber,
-    this.count}) : super(id);
+      {int id,
+      this.title,
+      this.description,
+      this.image,
+      this.thumb,
+      this.parentId,
+      this.orderNumber,
+      this.count})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {
@@ -29,19 +30,11 @@ class ProductCategoryEntity extends Entity<int> {
       'thumb': thumb,
       'parentId': parentId,
       'orderNumber': orderNumber,
-      'count':count
+      'count': count
     };
   }
 
   @override
-  List<Object> get props => [
-    id, 
-    title, 
-    description, 
-    image, 
-    thumb, 
-    parentId,
-    orderNumber,
-    count
-  ];
+  List<Object> get props =>
+      [id, title, description, image, thumb, parentId, orderNumber, count];
 }

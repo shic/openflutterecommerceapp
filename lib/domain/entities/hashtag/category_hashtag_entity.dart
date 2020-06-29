@@ -16,9 +16,5 @@ class CategoryHashTagEntity extends Entity<int> {
   }
 
   @override
-  List<Object> get props => [
-    id, 
-    hashTagId, 
-    categoryId
-  ];
+  List<Object> get props => [id, hashTagId, categoryId];
 }

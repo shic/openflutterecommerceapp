@@ -175,15 +175,9 @@ class _MyOrderDetailsViewState extends State<MyOrderDetailsView> {
       for (CartItem item in state.orderData.products)
         OpenFlutterCartTile(
           item: item,
-          onAddToFav: (() => {
-            
-          }),
-          onChangeQuantity: ((int quantity) => {
-
-          }),
-          onRemoveFromCart: (() => {
-            
-          }),
+          onAddToFav: (() => {}),
+          onChangeQuantity: ((int quantity) => {}),
+          onRemoveFromCart: (() => {}),
           orderComplete: true,
         )
     ];

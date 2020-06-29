@@ -79,59 +79,69 @@ class OrderRepository {
       orderStatus: UserOrderStatus.Delivered,
       products: <CartItem>[
         CartItem(
-          product: Product(
-            1,
-            images: [CommerceImage(0, 'assets/images/checkout/cart/product1.png', '')],
-            discountPercent: 20,
-            averageRating: 5,
-            ratingCount: 10,
-            price: 15,
-            title: 'Pullover',
-            selectableAttributes: [sizeAttribute, colorAttribute], categories: [], hashTags: [], subTitle: null,
-          ),
-          selectedAttributes: HashMap.fromEntries([
-            MapEntry(sizeAttribute, 'S'),
-            MapEntry(colorAttribute, 'Blue')
-          ]),
-          productQuantity: ProductQuantity(1)
-        ),
+            product: Product(
+              1,
+              images: [
+                CommerceImage(0, 'assets/images/checkout/cart/product1.png', '')
+              ],
+              discountPercent: 20,
+              averageRating: 5,
+              ratingCount: 10,
+              price: 15,
+              title: 'Pullover',
+              selectableAttributes: [sizeAttribute, colorAttribute],
+              categories: [],
+              hashTags: [],
+              subTitle: null,
+            ),
+            selectedAttributes: HashMap.fromEntries([
+              MapEntry(sizeAttribute, 'S'),
+              MapEntry(colorAttribute, 'Blue')
+            ]),
+            productQuantity: ProductQuantity(1)),
         CartItem(
-          product: Product(
-            2,
-            images: [CommerceImage(0, 'assets/images/checkout/cart/product2.png', '')],
-            discountPercent: 20,
-            averageRating: 5,
-            ratingCount: 10,
-            price: 15,
-            title: 'T-shirt',
-            selectableAttributes: [sizeAttribute, colorAttribute],
-            categories: [], hashTags: [], subTitle: null,
-          ),
-          selectedAttributes: HashMap.fromEntries([
-            MapEntry(sizeAttribute, 'S'),
-            MapEntry(colorAttribute, 'Blue')
-          ]),
-          productQuantity: ProductQuantity(1)
-        ),
+            product: Product(
+              2,
+              images: [
+                CommerceImage(0, 'assets/images/checkout/cart/product2.png', '')
+              ],
+              discountPercent: 20,
+              averageRating: 5,
+              ratingCount: 10,
+              price: 15,
+              title: 'T-shirt',
+              selectableAttributes: [sizeAttribute, colorAttribute],
+              categories: [],
+              hashTags: [],
+              subTitle: null,
+            ),
+            selectedAttributes: HashMap.fromEntries([
+              MapEntry(sizeAttribute, 'S'),
+              MapEntry(colorAttribute, 'Blue')
+            ]),
+            productQuantity: ProductQuantity(1)),
         CartItem(
-          product: Product(
-            3,
-            images: [CommerceImage(0, 'assets/images/checkout/cart/product2.png', '')],
-            discountPercent: 20,
-            isFavorite: false,
-            averageRating: 5,
-            ratingCount: 10,
-            price: 15,
-            title: 'Sport Dress',
-            selectableAttributes: [sizeAttribute, colorAttribute],
-            categories: [], hashTags: [], subTitle: null,
-          ),
-          selectedAttributes: HashMap.fromEntries([
-            MapEntry(sizeAttribute, 'S'),
-            MapEntry(colorAttribute, 'Blue')
-          ]),
-          productQuantity: ProductQuantity(1)
-        ),
+            product: Product(
+              3,
+              images: [
+                CommerceImage(0, 'assets/images/checkout/cart/product2.png', '')
+              ],
+              discountPercent: 20,
+              isFavorite: false,
+              averageRating: 5,
+              ratingCount: 10,
+              price: 15,
+              title: 'Sport Dress',
+              selectableAttributes: [sizeAttribute, colorAttribute],
+              categories: [],
+              hashTags: [],
+              subTitle: null,
+            ),
+            selectedAttributes: HashMap.fromEntries([
+              MapEntry(sizeAttribute, 'S'),
+              MapEntry(colorAttribute, 'Blue')
+            ]),
+            productQuantity: ProductQuantity(1)),
       ],
       promo: Promo(
           daysLeft: 6,

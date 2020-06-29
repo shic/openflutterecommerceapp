@@ -9,7 +9,6 @@ import 'package:openflutterecommerce/presentation/widgets/widgets.dart';
 
 import 'forget_password.dart';
 
-
 class ForgetPasswordScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -42,7 +41,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           if (state is ForgetPasswordFinishedState) {
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                content: Text('An email with password reminder was sent to ${state.email}'),
+                content: Text(
+                    'An email with password reminder was sent to ${state.email}'),
                 backgroundColor: Colors.green, // TODO use app colors
                 duration: Duration(seconds: 3),
               ),

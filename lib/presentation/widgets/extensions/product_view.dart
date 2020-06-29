@@ -144,9 +144,7 @@ extension FavoriteView on FavoriteProduct {
               ? null
               : 'Sorry, this item is currently sold out',
       bottomRoundButton: FloatingActionButton(
-        heroTag: 'Remove from Cart' +Random()
-              .nextInt(1000000)
-              .toString(),
+        heroTag: 'Remove from Cart' + Random().nextInt(1000000).toString(),
         backgroundColor: AppColors.red,
         onPressed: onAddToCart,
         child: Icon(
@@ -199,9 +197,7 @@ extension FavoriteView on FavoriteProduct {
                 ? null
                 : 'Sorry, this item is currently sold out',
         bottomRoundButton: FloatingActionButton(
-          heroTag: 'Add to Cart' + Random()
-                .nextInt(1000000)
-                .toString(),
+          heroTag: 'Add to Cart' + Random().nextInt(1000000).toString(),
           backgroundColor: AppColors.red,
           onPressed: onAddToCart,
           child: Icon(
@@ -240,43 +236,45 @@ extension FavoriteView on FavoriteProduct {
         });
   }
 
-  Widget _buildColor(ThemeData _theme,
-    HashMap<ProductAttribute, String> selectedAttributes) {
+  Widget _buildColor(
+      ThemeData _theme, HashMap<ProductAttribute, String> selectedAttributes) {
     String colorValue = '';
     selectedAttributes?.forEach((attribute, value) {
-      if ( attribute.name == 'Color') colorValue = value;
+      if (attribute.name == 'Color') colorValue = value;
     });
-    return colorValue.isNotEmpty ?
-      Row(
-        children: <Widget>[
-          Text('Color:', style: _theme.textTheme.body1.copyWith()),
-          Padding(
-            padding: EdgeInsets.only(left: AppSizes.linePadding),
-          ),
-          Text(colorValue,
-              style: _theme.textTheme.body1.copyWith(color: AppColors.black))
-        ],
-      ) 
-      : Row();
+    return colorValue.isNotEmpty
+        ? Row(
+            children: <Widget>[
+              Text('Color:', style: _theme.textTheme.body1.copyWith()),
+              Padding(
+                padding: EdgeInsets.only(left: AppSizes.linePadding),
+              ),
+              Text(colorValue,
+                  style:
+                      _theme.textTheme.body1.copyWith(color: AppColors.black))
+            ],
+          )
+        : Row();
   }
 
-  Row _buildSize(ThemeData _theme,
-    HashMap<ProductAttribute, String> selectedAttributes) {
+  Row _buildSize(
+      ThemeData _theme, HashMap<ProductAttribute, String> selectedAttributes) {
     String sizeValue = '';
     selectedAttributes?.forEach((attribute, value) {
-      if ( attribute.name == 'Size') sizeValue = value;
+      if (attribute.name == 'Size') sizeValue = value;
     });
-    return sizeValue.isNotEmpty?
-      Row(
-        children: <Widget>[
-          Text('Size:', style: _theme.textTheme.body1.copyWith()),
-          Padding(
-            padding: EdgeInsets.only(left: AppSizes.linePadding),
-          ),
-          Text(sizeValue,
-              style: _theme.textTheme.body1.copyWith(color: AppColors.black))
-        ],
-      )
-      : Row();
+    return sizeValue.isNotEmpty
+        ? Row(
+            children: <Widget>[
+              Text('Size:', style: _theme.textTheme.body1.copyWith()),
+              Padding(
+                padding: EdgeInsets.only(left: AppSizes.linePadding),
+              ),
+              Text(sizeValue,
+                  style:
+                      _theme.textTheme.body1.copyWith(color: AppColors.black))
+            ],
+          )
+        : Row();
   }
 }

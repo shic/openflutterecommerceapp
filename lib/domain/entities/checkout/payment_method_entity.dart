@@ -8,12 +8,13 @@ class PaymentMethodEntity extends Entity<int> {
   final int cvv;
 
   PaymentMethodEntity(
-    {int id, 
-    this.nameOnCard, 
-    this.cardNumber, 
-    this.expiryDateMonth,
-    this.expiryDateYear,
-    this.cvv}) : super(id);
+      {int id,
+      this.nameOnCard,
+      this.cardNumber,
+      this.expiryDateMonth,
+      this.expiryDateYear,
+      this.cvv})
+      : super(id);
 
   @override
   Map<String, dynamic> toMap() {
@@ -28,12 +29,6 @@ class PaymentMethodEntity extends Entity<int> {
   }
 
   @override
-  List<Object> get props => [
-    id, 
-    nameOnCard, 
-    cardNumber, 
-    expiryDateMonth,
-    expiryDateYear,
-    cvv
-  ];
+  List<Object> get props =>
+      [id, nameOnCard, cardNumber, expiryDateMonth, expiryDateYear, cvv];
 }

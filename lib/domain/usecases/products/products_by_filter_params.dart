@@ -8,8 +8,8 @@ class ProductsByFilterParams {
 
   ProductsByFilterParams({
     this.categoryId,
-    this.sortBy, 
-    this.filterRules, 
+    this.sortBy,
+    this.filterRules,
   });
 
   bool get filterByCategory => categoryId != null;
