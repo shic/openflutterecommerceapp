@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/error/exceptions.dart';
-import 'package:openflutterecommerce/domain/entities/entity.dart';
 import 'package:openflutterecommerce/data/model/category.dart';
+import 'package:openflutterecommerce/data/model/hashtag.dart';
+import 'package:openflutterecommerce/domain/entities/entity.dart';
 import 'package:openflutterecommerce/domain/entities/product/product_entity.dart';
 
 import 'commerce_image.dart';
@@ -12,6 +12,7 @@ import 'product_attribute.dart';
 class Product extends Equatable {
   final int id;
   final String title;
+
   //cateogry or hashtag to display next to title
   final String subTitle;
   final String shortDescription;
@@ -38,9 +39,11 @@ class Product extends Equatable {
     this.id, {
     @required this.title,
     @required this.subTitle,
+    @required this.price,
+    @required this.categories,
+    @required this.hashTags,
     this.shortDescription,
     this.description,
-    @required this.price,
     this.discountPercent = 0,
     this.amountAvailable = 0,
     DateTime created,
@@ -54,8 +57,6 @@ class Product extends Equatable {
     this.images,
     this.properties,
     this.selectableAttributes,
-    @required this.categories,
-    @required this.hashTags,
     this.isFavorite = false,
   }) : created = created ?? DateTime.now();
 

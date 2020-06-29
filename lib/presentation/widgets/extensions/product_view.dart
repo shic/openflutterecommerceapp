@@ -20,9 +20,12 @@ extension View on Product {
       @required VoidCallback onFavoritesClick}) {
     return BaseProductListItem(
       onClick: showProductInfo,
+/*
       inactiveMessage: amountAvailable == null || amountAvailable > 0
           ? null
           : 'Sorry, this item is currently sold out',
+*/
+      inactiveMessage: null,
       bottomRoundButton: _getFavoritesButton(onFavoritesClick),
       image: mainImage?.getView(),
       specialMark: specialMark,
@@ -47,9 +50,12 @@ extension View on Product {
     return BaseProductTile(
         onClick: showProductInfo,
         bottomRoundButton: _getFavoritesButton(onFavoritesClick),
-        inactiveMessage: amountAvailable == null || amountAvailable > 0
-            ? null
-            : 'Sorry, this item is currently sold out',
+/*
+      inactiveMessage: amountAvailable == null || amountAvailable > 0
+          ? null
+          : 'Sorry, this item is currently sold out',
+*/
+        inactiveMessage: null,
         image: mainImage.getView(),
         mainContentBuilder: (context) {
           return Column(
@@ -73,10 +79,8 @@ extension View on Product {
 
   Widget _getFavoritesButton(VoidCallback onFavoritesClick) {
     return FloatingActionButton(
-      heroTag: title +
-          Random()
-              .nextInt(1000000)
-              .toString(), //TODO make sure that there is only one product with specified id on screen and use it as a tag
+      heroTag: title + Random().nextInt(1000000).toString(),
+      //TODO make sure that there is only one product with specified id on screen and use it as a tag
       mini: true,
       backgroundColor: AppColors.white,
       onPressed: onFavoritesClick,

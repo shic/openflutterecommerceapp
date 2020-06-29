@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/config/theme.dart';
+import 'package:openflutterecommerce/data/error/exceptions.dart';
 import 'package:openflutterecommerce/data/model/filter_rules.dart';
 import 'package:openflutterecommerce/data/model/product.dart';
 import 'package:openflutterecommerce/data/model/sort_rules.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/product_repository.dart';
-import 'package:openflutterecommerce/data/error/exceptions.dart';
-import 'package:openflutterecommerce/data/woocommerce/models/product_model.dart';
+import 'package:openflutterecommerce/data/woocommerce/app_data.dart';
 import 'package:openflutterecommerce/data/woocommerce/repositories/woocommerce_wrapper.dart';
-import 'package:openflutterecommerce/domain/usecases/products/products_by_filter_params.dart';
 
 class RemoteProductRepository extends ProductRepository {
   final WoocommercWrapperAbstract woocommerce;
@@ -43,6 +42,7 @@ class RemoteProductRepository extends ProductRepository {
       FilterRules filterRules}) async {
     // TODO: implement getProducts
     try {
+/*
       List<dynamic> productsData =
           await woocommerce.getProductList(ProductsByFilterParams(
         categoryId: categoryId,
@@ -55,6 +55,8 @@ class RemoteProductRepository extends ProductRepository {
             .add(Product.fromEntity(ProductModel.fromJson(productsData[i])));
       }
       return products;
+*/
+      return AppData.productList;
     } on HttpRequestException {
       throw RemoteServerException();
     }
