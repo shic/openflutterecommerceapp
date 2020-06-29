@@ -1,23 +1,40 @@
 import 'package:openflutterecommerce/data/model/category.dart';
 import 'package:openflutterecommerce/data/model/commerce_image.dart';
+import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/model/product.dart';
 
 class AppData {
-
   static List<ProductCategory> productCategoryList = [
-    ProductCategory(1, name: "Bellezza", image: CommerceImage(
-      1001, 'assets/placeholder.png', 'no image', isLocal: true,
-    ),
+    ProductCategory(
+      1,
+      name: "Bellezza",
+      image: CommerceImage(
+        1001,
+        'assets/placeholder.png',
+        'no image',
+        isLocal: true,
+      ),
     ),
   ];
+  static List<ProductCategory> productCategory1 = [
+    productCategoryList[0],
+  ];
+
+  static List<HashTag> hashTagsPrescription = [
+    HashTag(
+      id: 2001,
+      title: "PRESCRIZIONE",
+    )
+  ];
+
   static List<Product> productList = [
     Product(
       1,
       title: "Tachipirina da 1000 mg",
       subTitle: "TACHIPIRINA 1000mg in compresse effervescenti",
       price: 5.60,
-      categories:,
-      hashTags: null,
+      categories: productCategory1,
+      hashTags: hashTagsPrescription,
     ),
   ];
   static List<Product> cartList = [];
