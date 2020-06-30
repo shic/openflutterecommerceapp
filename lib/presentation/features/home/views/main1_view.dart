@@ -35,8 +35,8 @@ class _Main1ViewState extends State<Main1View> {
               width: width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/splash/splash-home.png'),
+                  fit: BoxFit.fitHeight,
+                  image: AssetImage('assets/splash/splash-home.jpg'),
                 ),
               ),
               child: Column(

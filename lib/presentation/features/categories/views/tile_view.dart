@@ -23,7 +23,7 @@ class CategoriesTileView extends StatefulWidget {
 
 class _CategoriesTileViewState extends State<CategoriesTileView>
     with SingleTickerProviderStateMixin {
-  final List<String> types = ['Women', 'Men', 'Kids'];
+  final List<String> types = ['Bellezza', 'Salute', 'Alimentazione'];
   final List<int> categotyIds = [1, 2, 3];
   TabController _tabController;
 
