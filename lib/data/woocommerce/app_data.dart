@@ -4,20 +4,37 @@ import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/model/product.dart';
 
 class AppData {
-  static List<CommerceImage> images = [
+  static List<CommerceImage> imagesCategory = [
     CommerceImage(
       1001,
-      'assets/placeholder.png',
-      'no image',
+
+      'assets/images/categories/bellezza.jpeg',
+      'bellezza ',
       isLocal: true,
     ),
+  ];
+  static List<CommerceImage> imagesTachipirina = [
+    CommerceImage(
+      1010,
+      'assets/images/products/tachipirina.jpeg',
+      'tachipirina 1',
+      isLocal: true,
+    ),
+/*
+    CommerceImage(
+      1011,
+      'assets/images/products/tachipirina2.jpeg',
+      'tachipirina 2',
+      isLocal: true,
+    ),
+*/
   ];
 
   static List<ProductCategory> productCategoryList = [
     ProductCategory(
       1,
       name: "Bellezza",
-      image: images[0],
+      image: imagesCategory[0],
     ),
   ];
   static List<ProductCategory> productCategory1 = [
@@ -43,7 +60,7 @@ class AppData {
       description: "description",
       amountAvailable: 10,
       averageRating: 3.4,
-      images: images,
+      images: imagesTachipirina,
     ),
   ];
   static List<Product> cartList = [];
