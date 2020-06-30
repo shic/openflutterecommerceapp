@@ -2,12 +2,12 @@ import 'package:openflutterecommerce/data/model/category.dart';
 import 'package:openflutterecommerce/data/model/commerce_image.dart';
 import 'package:openflutterecommerce/data/model/hashtag.dart';
 import 'package:openflutterecommerce/data/model/product.dart';
+import 'package:openflutterecommerce/data/model/product_attribute.dart';
 
 class AppData {
   static List<CommerceImage> imagesCategory = [
     CommerceImage(
       1001,
-
       'assets/images/categories/bellezza.jpeg',
       'bellezza ',
       isLocal: true,
@@ -15,7 +15,7 @@ class AppData {
   ];
   static List<CommerceImage> imagesTachipirina = [
     CommerceImage(
-      1010,
+      0,
       'assets/images/products/tachipirina.jpeg',
       'tachipirina 1',
       isLocal: true,
@@ -32,8 +32,18 @@ class AppData {
 
   static List<ProductCategory> productCategoryList = [
     ProductCategory(
-      1,
+      3001,
       name: "Bellezza",
+      image: imagesCategory[0],
+    ),
+    ProductCategory(
+      3002,
+      name: "Salute",
+      image: imagesCategory[0],
+    ),
+    ProductCategory(
+      3003,
+      name: "Alimentazione",
       image: imagesCategory[0],
     ),
   ];
@@ -47,6 +57,10 @@ class AppData {
       title: "PRESCRIZIONE",
     )
   ];
+  static const sizeAttribute = ProductAttribute(name: 'size', options: [
+    '500mg',
+    '1000mg',
+  ]);
 
   static List<Product> productList = [
     Product(
@@ -61,6 +75,7 @@ class AppData {
       amountAvailable: 10,
       averageRating: 3.4,
       images: imagesTachipirina,
+      selectableAttributes: [sizeAttribute],
     ),
   ];
   static List<Product> cartList = [];
