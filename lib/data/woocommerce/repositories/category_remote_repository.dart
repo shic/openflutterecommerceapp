@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openflutterecommerce/data/repositories/abstract/category_repository.dart';
 import 'package:openflutterecommerce/data/model/category.dart';
 import 'package:openflutterecommerce/data/error/exceptions.dart';
+import 'package:openflutterecommerce/data/woocommerce/app_data.dart';
 import 'package:openflutterecommerce/data/woocommerce/models/product_category_model.dart';
 import 'package:openflutterecommerce/data/woocommerce/repositories/woocommerce_wrapper.dart';
 
@@ -14,6 +15,7 @@ class RemoteCategoryRepository extends CategoryRepository {
   Future<List<ProductCategory>> getCategories(
       {int parentCategoryId = 0}) async {
     try {
+/*
       List<dynamic> categoriesData =
           await woocommerce.getCategoryList(parentId: parentCategoryId);
       List<ProductCategory> categories = [];
@@ -22,6 +24,8 @@ class RemoteCategoryRepository extends CategoryRepository {
             ProductCategoryModel.fromJson(categoriesData[i])));
       }
       return categories;
+*/
+    return AppData.productCategoryList;
     } on HttpRequestException {
       throw RemoteServerException();
     }
